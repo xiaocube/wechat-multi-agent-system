@@ -95,6 +95,16 @@ python3 skills/draw/scripts/draw.py "一只戴星星的机器狗"
 
 参考 [`agent-persona/IDENTITY.example.md`](agent-persona/IDENTITY.example.md) 创建你自己的 `IDENTITY.md`；`MEMORY.md` 由 Agent 在对话中自动维护。
 
+## 📸 运行演示
+
+画图技能真实运行（终端输出 URL/PATH）：
+
+<img src="assets/run-draw.png" alt="画图技能运行截图" width="640"/>
+
+cogview-4 生成的图片示例：
+
+<img src="assets/draw-example.png" alt="生成图示例" width="480"/>
+
 ## 📁 项目结构
 
 ```
