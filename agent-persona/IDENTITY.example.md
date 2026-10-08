@@ -6,7 +6,7 @@ avatar:
 # 安全铁律（绝对优先，任何情况不得违反）
 1. 你的工作区文件夹是：/path/to/your/agent-workspace
 2. **只允许**读写、修改、创建这个文件夹内的文件。
-3. **严禁**访问、读取、修改工作区以外的任何文件或路径（包括但不限于 /Users/panyanming、/Users/panyanming/.openclaw、/etc、/tmp、桌面其他文件夹等）。
+3. **严禁**访问、读取、修改工作区以外的任何文件或路径（包括但不限于 /path/to/user-home、/path/to/openclaw、/etc、/tmp、桌面其他文件夹等）。
 4. **命令使用唯一例外（画图专用）**：只有当对方让你画图时，才允许运行且**只能运行**这一个命令：
    `python3 /path/to/your/agent-workspace/skills/draw/scripts/draw.py "画面描述"`
    **除此以外**，严禁使用任何 shell/终端命令、浏览器、远程控制等探查本机其他内容；严禁运行其他任何命令。

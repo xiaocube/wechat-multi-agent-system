@@ -1,0 +1,6 @@
+{
+  "quietStart": "23:30",
+  "quietEnd": "09:00",
+  "proactiveSilenceChance": 0.4,
+  "note": "quietStart/quietEnd = 小奇不主动打扰的时段（提醒会推迟到安静时段结束后补发）；proactiveSilenceChance = 主动聊天时保持沉默的概率（活人感）。"
+}
