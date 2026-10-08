@@ -1,0 +1,42 @@
+{
+  "models": {
+    "providers": {
+      "zhipu": {
+        "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+        "apiKey": "${ZHIPU_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          { "id": "glm-5.3-flash", "name": "glm-5.3-flash", "input": ["text", "image"] },
+          { "id": "cogview-4", "name": "cogview-4" }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "entries": {
+      "main": {
+        "name": "main",
+        "workspace": "/path/to/main-workspace",
+        "model": "zhipu/glm-5.3-flash",
+        "tools": {
+          "profile": "minimal",
+          "alsoAllow": ["read", "write", "edit", "glob", "grep", "web_search", "web_fetch", "bash", "message"],
+          "message": { "actions": { "allow": ["send"] } }
+        },
+        "skills": ["draw"]
+      },
+      "friend": {
+        "name": "friend",
+        "workspace": "/path/to/friend-workspace",
+        "model": "zhipu/glm-5.3-flash",
+        "tools": {
+          "profile": "minimal",
+          "deny": ["browser", "computer", "shell"],
+          "alsoAllow": ["read", "write", "edit", "glob", "grep", "web_search", "web_fetch", "bash", "message"],
+          "message": { "actions": { "allow": ["send"] } }
+        },
+        "skills": ["draw"]
+      }
+    }
+  }
+}
