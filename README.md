@@ -265,7 +265,7 @@ if out && len(out) <= 200; then echo "$out"; fi
 
 ### ⑥ 文生图能力（画一张）
 
-**搭建思路**：微信通道有附件类型白名单（SVG/HTML 被拒）。所以画图必须是"生成真实 PNG → 走媒体通道发送"，而不是 Agent 手写 SVG 冒充。
+**搭建思路**：模型本身完全可以生成和理解 SVG——OpenClaw 核心层把 `image/svg+xml` 归类为 image 类型（`attachment-classify`）。真正被拒发生在**微信发送链路**：OpenClaw 的本地附件白名单不接受 SVG 作为可发送附件（实测报错 `Rejected by the local attachment allowlist`），用户收不到图。所以画图必须是"生成真实 PNG → 走媒体通道发送"，而不是 Agent 手写 SVG 冒充。
 
 **实现方式**：`skills/draw/` 定义技能，强制单步流程：
 
@@ -400,7 +400,7 @@ wechat-multi-agent-system/
 ## ⚠️ 已知限制
 
 - **微信通道硬限制**：用户超过 24h 未发言无法主动发送（主动窗口重置需用户先发消息）；单轮回复上限 10 条，超出的被丢弃 → 长内容必须合并为一条文本
-- **附件白名单**：仅支持特定类型（PNG/JPG 等），SVG/HTML 发送失败
+- **附件发送白名单**：模型可理解 SVG（核心层将 `image/svg+xml` 归类为图片），但微信发送链路拒绝 SVG 附件（`Rejected by the local attachment allowlist`）→ 画图必须走真实 PNG（cogview-4）
 - **主动消息窗口**：默认安静时段 23:30–09:00 不打扰（可配置）
 - **模型依赖**：对话与画图共用智谱 key，不同套餐有 RPM/TPM 限流
 
