@@ -3,6 +3,7 @@
 > **让每个微信账号拥有一个"活的" AI 人格** —— 基于 OpenClaw 的微信端多智能体系统：人设定制、记忆演化、主动聊天、定时提醒、文生图、硬件联动，一套框架，多个独立 Agent。
 
 <p align="center">
+  <img src="assets/mechdog-photo.jpg" alt="四足机器狗本体" width="300"/>
   <img src="assets/chat-mechdog-demo.png" alt="微信实拍：机器狗控制" width="280"/>
   <img src="assets/chat-draw-demo.png" alt="微信实拍：文生图" width="280"/>
 </p>
